@@ -1,0 +1,216 @@
+html, body,
+div,
+span,
+iframe article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+abbr,
+acronym,
+del,
+ins,
+dfn,
+kbd,
+mark,
+samp b,
+u,
+i,
+s,
+center,
+em,
+strong,
+small,
+big,
+bdo,
+strike,
+sub,
+sup,
+var,
+code,
+img,
+table,
+caption,
+tbody,
+tbody,
+thead,
+tfoot,
+tr,
+th,
+td,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+label,
+address,
+blockquote,
+cite,
+code,
+details,
+pre summary,
+time,
+applet,
+audio,
+canvas,
+embed,
+objet,
+output,
+source,
+video {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    outline: 0;
+    text-decoration: none;
+}
+
+:link,
+:visited,
+ins,
+u,
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    background-image: url(http://simplon.co/wp-content/uploads/2014/11/smp2.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+    font-family: helvetica;
+}
+
+body header {
+    background-color: white;
+    padding: 10px;
+}
+
+#inscri {
+    width: 15%;
+    display: inline-block;
+}
+
+#logo {
+    display: inline-block;
+    margin-left: 30%;
+    margin-bottom: 20px;
+}
+
+#hd {
+    width: 84%;
+    display: inline-block;
+
+}
+
+
+ul li {
+    display: block;
+    line-height: 60px;
+    font-size: 1.5em;
+    color: darkslategray;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#titre {
+    text-align: center;
+    padding: 100px;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+#content {
+    background-color: white;
+    padding-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 20px;
+}
+
+div#content p {
+    color: darkslategray;
+    font-size: 1.3em;
+    line-height: 35px;
+}
+
+div#content p:first-of-type {
+    display: inline-block;
+    width: 50%;
+    margin: 0px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+div#content img {
+    display: inline-block;
+    margin-left: 90px;
+    height: 280px;
+}
+
+#pink {
+    background-color: deeppink;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    color: white;
+    text-shadow: 1px 1px 2px black; 
+}
+
+input {
+    background-color: deeppink;
+    border: solid 3px white;
+    border-radius: 3px;
+    margin-top: 40px;
+    width: 800px;
+    height: 50px;
+    font-size: 1.5em;
+}
+
+#test {
+    width: 170px;
+    height: 70px;
+    background: white;
+    border: solid 10px black;
+    color: red;
+    font-size: 2em;
+    text-align: center;
+    line-height: 70px;
+}

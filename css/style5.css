@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    background: blue;
+}
+
+nav {
+    background: red;
+}
+
+footer {
+    background: green;
+}
+
+.centre {
+    width: 70%;
+    margin: auto;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+img {
+    height: 100px;
+}
+
+header div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+nav div {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+main div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+footer div {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}

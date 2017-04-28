@@ -1,0 +1,34 @@
+fieldset {
+    width: 30%;
+    background: red;
+}
+
+form>ul>li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+label {
+    display: block;
+}
+
+form>ul>li>ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+form>ul>li>ul>li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 50%;
+}

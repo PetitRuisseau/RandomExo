@@ -1,0 +1,68 @@
+header {
+    background: lightgray;
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+
+div {
+    flex-grow: 4;
+}
+
+nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-right: 100px;
+}
+
+section {
+    padding: 20px;
+    background: gray;
+    font-size: 1.2em;
+    width: 100px;
+    text-align: center;
+}
+
+section:hover {
+    background: white;
+}
+
+#menu1 {
+    display: none;
+}
+
+#menu2 {
+    display: none;
+}
+
+#lien1:hover #menu1 {
+    display: block;
+}
+
+#lien2:hover #menu2 {
+    display: block;
+    position: absolute;
+    left: 50px;
+    top: 30px;
+}
+
+li:hover {
+    background: red;
+}
+
+ul {
+    box-shadow: 1px 2px 5px gray;
+    position: absolute;
+    background: white;
+    padding: 0px;
+}
+
+li {
+    line-height: 30px;
+    border-bottom: solid 1px gray;
+    display: block;
+    padding: 0px;
+}

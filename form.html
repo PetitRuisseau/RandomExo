@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+</head>
+
+<body>
+    <fieldset>
+        <legend>Insciption</legend>
+        <form method="GET" action="#">
+            <ul>
+                <li>
+                    <label for="nom">Nom :</label>
+                    <input type="text" name="nom" placeholder="Nom" id="nom" />
+                </li>
+                <li>
+                    <label for="prenom">Prenom :</label>
+                    <input type="text" name="prenom" placeholder="Prenom" id="prenom" />
+                </li>
+                <li>
+                    <label for="genre">Genre :</label>
+                    <ul id="genre">
+                        <li>
+                            <input type="radio" name="genre" id="masculin" value="masculin" />
+                            <label for="masculin">Masculin</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="genre" id="feminin" value="feminin" />
+                            <label for="feminin">Feminin</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="genre" id="transexuel" value="transexuel" />
+                            <label for="transexuel">Transexuel</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="genre" id="ermaphrodite" value="ermaphrodite" />
+                            <label for="ermaphrodite">Ermaphrodite</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="genre" id="asexue" value="asexue" />
+                            <label for="asexue">Asexué</label>
+                        </li>
+                        <li>
+                            <input type="radio" name="genre" id="autre" value="autre" />
+                            <label for="autre">Autre</label>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <label for="age">Age :</label>
+                    <input type="number" name="age" id="age" />
+                </li>
+                <li>
+                    <label for="email">Email :</label>
+                    <input type="email" name="email" placeholder="Exemple@truc.com" id="email" />
+                </li>
+                <li>
+                    <label for="mdp">Mot de passe :</label>
+                    <input type="password" name="mdp" id="mdp" />
+                </li>
+                <li>
+                    <label for="region">Région :</label>
+                    <select id="region" name="region">
+                        <option value="alsace">Alsace</option>
+                        <option value="Aquitaine">Aquitaine</option>
+                        <option value="Auvergne">Auvergne</option>
+                        <option value="Basse-Normandie">Basse-Normandie</option>
+                        <option value="Bourgogne">Bourgogne</option>
+                        <option value="Bretagne">Bretagne</option>
+                        <option value="Centre">Centre</option>
+                        <option value="Champagne-Ardenne">Champagne-Ardenne</option>
+                        <option value="Corse">Corse</option>
+                        <option value="Franche-Comté">Franche-Comté</option>
+                        <option value="Haute-Normandie">Haute-Normandie</option>
+                        <option value="Île-de-France">Île-de-France</option>
+                        <option value="Languedoc-Roussillon">Languedoc-Roussillon</option>
+                        <option value="Limousin">Limousin</option>
+                        <option value="Lorraine">Lorraine</option>
+                        <option value="Midi-Pyrénées">Midi-Pyrénées</option>
+                        <option value="Nord-Pas-de-Calais">Nord-Pas-de-Calais</option>
+                        <option value="Pays de la Loire">Pays de la Loire</option>
+                        <option value="Picardie">Picardie</option>
+                        <option value="Poitou-Charentes">Poitou-Charentes</option>
+                        <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
+                        <option value="Rhône-Alpes">Rhône-Alpes</option>
+                    </select>
+                </li>
+                <li>
+                    <input type="submit" name "envoyer" value="Envoyer" />
+            </ul>
+        </form>
+    </fieldset>
+</body>
