@@ -6,8 +6,12 @@ document.body.addEventListener("mousemove", function(event) {
     div.style.left = x - 30 + "px";
     div.style.top = y - 27 + "px";
     let h = window.innerHeight;
-    let red = (x * 255) / h;
-    div.style.background = "rgb(" + red + ",0,0)";
+    let w = window.innerWidth;
+    let red = (y * 255) / h;
+    let blue = (x * 255) / w;
+    red = Math.trunc(red);
+    blue = Math.trunc(blue);
+    div.style.background = "rgb(" + red + "," + blue + ",0)";
     console.log(h, red);
 });
 
