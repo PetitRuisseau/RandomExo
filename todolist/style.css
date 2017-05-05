@@ -1,0 +1,32 @@
+body {
+    width: 580px;
+    margin: auto;
+}
+
+form {
+    padding: 40px;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+div {
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    width: 50px;
+}
+
+input[name="caf"] {
+    margin: 20px 0px;
+}
+
+div[name="ajouter"] {
+    width: 100px;
+    align-self: flex-end;
+}
+
+hr {
+    margin: 20px 0px;
+}

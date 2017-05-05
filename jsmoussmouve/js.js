@@ -11,7 +11,7 @@ document.body.addEventListener("mousemove", function(event) {
     let blue = (x * 255) / w;
     red = Math.trunc(red);
     blue = Math.trunc(blue);
-    div.style.background = "rgb(" + red + "," + blue + ",0)";
+    div.style.background = "rgb(" + red + ",0," + blue + ")";
     console.log(h, red);
 });
 
