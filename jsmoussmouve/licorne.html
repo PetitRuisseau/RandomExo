@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Animations CSS</title>
+    <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    <!--si t'es un vieux navigateur, t'as besoin de ça pour comprendre la nouvelle ossature de page issue de html5-->
+
+    <style>
+        /* Statuts initial */
+        
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        #rarity {
+            background: url("rarity__sprite_by_perfectsyntax-daqf09f.png") no-repeat;
+            background-size: 288px 512px;
+            width: 96px;
+            height: 128px;
+            position: absolute;
+        }
+        /* Animation Rarity */
+        
+        @keyframes rarity-haut {
+            0% {
+                background-position: -96px -384px;
+            }
+            25% {
+                background-position: 0 -384px;
+            }
+            50% {
+                background-position: -96px -384px;
+            }
+            75% {
+                background-position: -192px -384px;
+            }
+            100% {
+                background-position: -96px -384px;
+            }
+        }
+        
+        @keyframes rarity-gauche {
+            0% {
+                background-position: -96px -128px;
+            }
+            25% {
+                background-position: 0 -128px;
+            }
+            50% {
+                background-position: -96px -128px;
+            }
+            75% {
+                background-position: -192px -128px;
+            }
+            100% {
+                background-position: -96px -128px;
+            }
+        }
+        
+        @keyframes rarity-droite {
+            0% {
+                background-position: -96px -256px;
+            }
+            25% {
+                background-position: 0 -256px;
+            }
+            50% {
+                background-position: -96px -256px;
+            }
+            75% {
+                background-position: -192px -256px;
+            }
+            100% {
+                background-position: -96px -256px;
+            }
+        }
+        
+        @keyframes rarity-bas {
+            0% {
+                background-position: -96px 0;
+            }
+            25% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: -96px 0;
+            }
+            75% {
+                background-position: -192px 0;
+            }
+            100% {
+                background-position: -96px 0;
+            }
+        }
+        
+        #joystick {
+            position: absolute;
+            right: 2em;
+            bottom: 2em;
+        }
+        
+        .btn_mv {
+            background: transparent url("fleches.png");
+            width: 55px;
+            height: 55px;
+            background-size: 98px 98px;
+            border: 2px outset grey;
+        }
+        
+        .btn_mv:active {
+            border: 2px inset grey;
+        }
+        
+        #btn_top {
+            background-position: -146px -146px;
+        }
+        
+        #btn_left {
+            background-position: -146px 1px;
+        }
+        
+        #btn_right {
+            background-position: 1px -146px;
+        }
+        
+        #btn_bottom {
+            background-position: 1px 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="rarity"></div>
+
+    <section id="joystick">
+        <button id="btn_top" class="btn_mv"></button>
+        <button id="btn_left" class="btn_mv"></button>
+        <button id="btn_right" class="btn_mv"></button>
+        <button id="btn_bottom" class="btn_mv"></button>
+    </section>
+
+    <script>
+        //préparation des boutons cliquables
+        let btnTop = document.getElementById("btn_top");
+        let btnLeft = document.getElementById("btn_left");
+        let btnRight = document.getElementById("btn_right");
+        let btnBottom = document.getElementById("btn_bottom");
+        //ciblage et positionnement initial de la licorne
+        let rarityBouge = document.getElementById("rarity");
+        let rarityPosLeft = 0;
+        let rarityPosTop = 0;
+        //création de fonctions de déplacement
+        let toTop = function(vitesse = 1) {
+            rarityBouge.style.animation = "rarity-haut 1s steps(1) infinite";
+            rarityPosTop -= (15 * vitesse);
+            rarityBouge.style.top = rarityPosTop + "px";
+        }
+        let toBottom = function(vitesse = 1) {
+            rarityBouge.style.animation = "rarity-bas 1s steps(1) infinite";
+            rarityPosTop += (15 * vitesse);
+            rarityBouge.style.top = rarityPosTop + "px";
+        }
+        let toRight = function(vitesse = 1) {
+            rarityBouge.style.animation = "rarity-droite 1s steps(1) infinite";
+            rarityPosLeft += (15 * vitesse);
+            rarityBouge.style.left = rarityPosLeft + "px";
+        }
+        let toLeft = function(vitesse = 1) {
+                rarityBouge.style.animation = "rarity-gauche 1s steps(1) infinite";
+                rarityPosLeft -= (15 * vitesse);
+                rarityBouge.style.left = rarityPosLeft + "px";
+            }
+            //Création d'une variable pour retenir l'orientation de Rarity
+        let orientationLicorne;
+        //l'utilisation des boutons cliquables entraine un mouvement
+        btnTop.addEventListener("click", function() {
+            toTop();
+            //nb : on ne peut pas directement mettre la fonction à côté de click, ça ne fonctionnne pas
+            orientationLicorne = "bas";
+        });
+        btnLeft.addEventListener("click", function() {
+            toLeft();
+            orientationLicorne = "gauche";
+        });
+        btnRight.addEventListener("click", function() {
+            toRight();
+            orientationLicorne = "droite";
+        });
+        btnBottom.addEventListener("click", function() {
+            toBottom();
+            orientationLicorne = "haut";
+        });
+        //l'utilisation des flèches clavier entraine un mouvement identique
+        //(source : https://developer.mozilla.org/fr/docs/Web/API/KeyboardEvent/key)
+        window.addEventListener("keydown", function(event) {
+            if (event.defaultPrevented) {
+                return; // Should do nothing if the key event was already consumed.
+            }
+            switch (event.key) {
+                case "ArrowDown":
+                    toBottom();
+                    orientationLicorne = "bas";
+                    break;
+                case "ArrowUp":
+                    toTop();
+                    orientationLicorne = "haut";
+                    break;
+                case "ArrowLeft":
+                    toLeft();
+                    orientationLicorne = "gauche";
+                    break;
+                case "ArrowRight":
+                    toRight();
+                    orientationLicorne = "droite";
+                    break;
+                default:
+                    return; // Quit when this doesn't handle the key event.
+            }
+            // Consume the event for suppressing "double action".
+            event.preventDefault();
+        }, true);
+        //La licorne arrête de marcher quand on sort des boutons ou si on arrête d'appuyer
+        let stopWalking = function() {
+            rarityBouge.style.animation = "none";
+            switch (orientationLicorne) {
+                case "haut":
+                    rarityBouge.style.backgroundPosition = "-96px -384px";
+                    break;
+                case "bas":
+                    rarityBouge.style.backgroundPosition = "-96px 0";
+                    break;
+                case "gauche":
+                    rarityBouge.style.backgroundPosition = "-96px -128px";
+                    break;
+                case "droite":
+                    rarityBouge.style.backgroundPosition = "-96px -256px";
+                    break;
+            }
+        }
+        btnTop.addEventListener("mouseleave", function() {
+            stopWalking();
+        });
+        btnBottom.addEventListener("mouseleave", function() {
+            stopWalking();
+        });
+        btnLeft.addEventListener("mouseleave", function() {
+            stopWalking();
+        });
+        btnRight.addEventListener("mouseleave", function() {
+            stopWalking();
+        });
+        window.addEventListener("keyup", function() {
+            stopWalking();
+        });
+    </script>
+
+</body>
+
+</html>

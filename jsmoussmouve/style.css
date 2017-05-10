@@ -5,24 +5,48 @@ body {
 }
 
 div {
-    border: dashed 1px black;
-    width: 50px;
-    height: 50px;
+    width: 1020px;
+    height: 620px;
+    border: solid 10px black;
+    color: white;
+    display: inline-block;
+}
+
+span {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+    font-size: 2em;
     position: absolute;
-    left: 0px;
-    top: 0px;
-    background: rgb(0, 0, 255);
+    left: 50px;
+    top: 50px;
 }
 
 a {
     border-radius: 100%;
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     background: red;
     position: absolute;
-    left: 0px;
-    top: 0px;
-    text-align: center;
-    color: white;
-    line-height: 40px;
+    left: 500px;
+    top: 300px;
+}
+
+h1 {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+section {
+    border: dotted 10px darkred;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: darkred;
+    position: absolute;
 }
