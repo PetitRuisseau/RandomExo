@@ -4,6 +4,7 @@ let droite = true;
 let gauche = false;
 let span = document.querySelector("span");
 let div = document.querySelector("div");
+let queue = document.querySelector("#queue");
 let a = document.querySelector("a");
 let h1 = document.querySelector("h1");
 let toper = 50;
@@ -11,7 +12,52 @@ let lefter = 50;
 let topa = 300;
 let lefta = 500;
 let wesh = false;
+let gros = false;
 let score = 0;
+
+
+function test(ta, la, tb, lb) {
+    let m = false;
+    let j = false;
+    let k = false;
+    let l = false;
+
+    if ((ta - 5) <= tb) {
+        //console.log("ok pour top")
+        m = true;
+    } else {
+        m = false;
+    }
+
+    if ((ta + 45) >= (tb + 20)) {
+        //console.log("ok pour top+")
+        j = true;
+    } else {
+        j = false;
+    }
+
+    if ((la - 5) <= lb) {
+        //console.log("ok pour left")
+        k = true;
+    } else {
+        k = false;
+    }
+
+    if ((la + 45) >= (lb + 20)) {
+        //console.log("ok pour left+")
+        l = true;
+    } else {
+        l = false;
+    }
+
+    if (m == true & j == true & k == true & l == true) {
+        //console.log("ok pour tous")
+        wesh = true;
+    } else {
+        wesh = false;
+    }
+
+}
 
 
 window.addEventListener("keydown", function(event) {
@@ -70,49 +116,7 @@ window.addEventListener("keydown", function(event) {
     event.preventDefault();
 }, true);
 
-function test(ta, la, tb, lb) {
-    let m = false;
-    let j = false;
-    let k = false;
-    let l = false;
 
-
-    if ((ta - 5) <= tb) {
-        console.log("ok pour top")
-        m = true;
-    } else {
-        m = false;
-    }
-
-    if ((ta + 45) >= (tb + 20)) {
-        console.log("ok pour top+")
-        j = true;
-    } else {
-        j = false;
-    }
-
-    if ((la - 5) <= lb) {
-        console.log("ok pour left")
-        k = true;
-    } else {
-        k = false;
-    }
-
-    if ((la + 45) >= (lb + 20)) {
-        console.log("ok pour left+")
-        l = true;
-    } else {
-        l = false;
-    }
-
-    if (m == true & j == true & k == true & l == true) {
-        console.log("ok pour tous")
-        wesh = true;
-    } else {
-        wesh = false;
-    }
-
-}
 
 setInterval(function() {
     if (toper < 600 & lefter < 1000 & toper > 0 & lefter > 0) {
@@ -157,11 +161,14 @@ setInterval(function() {
         let section = document.createElement("section");
         section.style.left = ((Math.random() * 1000) + 20) + "px";
         section.style.top = ((Math.random() * 600) + 20) + "px";
-        div.appendChild(section);
+        queue.appendChild(section);
         score = score + 1;
         h1.textContent = score;
-
+        gros = true;
     } else {
 
     }
-}, 5);
+    if (gros == true) {
+
+    }
+}, 100);
