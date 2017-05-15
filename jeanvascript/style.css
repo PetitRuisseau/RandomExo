@@ -1,0 +1,14 @@
+@keyframes .red {
+    background: red;
+    transition: ease-in-out 0.3s;
+}
+
+.gray {
+    background: gray;
+    transition: ease-in-out 0.3s;
+}
+
+.green {
+    background: green;
+    transition: ease-in-out 0.3s;
+}
