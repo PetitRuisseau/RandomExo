@@ -3,6 +3,7 @@ let liste = {
     prendre: "sac",
     faire: "sport"
 };
+liste["faire"]
 
 let afficheListe = function() {
     document.querySelector("ul").innerHTML = "";
