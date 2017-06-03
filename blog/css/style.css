@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Candal|Indie+Flower|Roboto');
 body {
     margin: 0;
     padding: 0;
@@ -14,9 +15,52 @@ header {
     justify-content: space-around;
     background: lightslategray;
     box-shadow: 0px 1px 5px grey;
+    font-family: 'Candal', Verdana, Helvetica, sans-serif;
+    color: white;
 }
 
 header img {
-    height: 50px;
-    margin: 10px;
+    height: 70px;
+    margin: 10px 30px;
+    ;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    border-right: 1px solid #bbbbbb;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    background: black;
+    color: white;
+}
+
+h5 {
+    Margin: 10px;
+    font-size: 0.8em;
+    text-align: center;
 }
