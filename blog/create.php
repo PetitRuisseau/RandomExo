@@ -9,23 +9,22 @@ if (isset($_POST['modifier'])) {
 }
 ?>
 <main>
-    <form method="post" action="controle.php">
+    <form method="post" action="blog.php">
         <input type="text" name="titre" required 
         <?php
-                if (isset($file)) {
+            if (isset($file)) {
                     echo "value='".pathinfo($_POST['truc'], PATHINFO_FILENAME)."'";
-                }
+            }
         ?>
         />
-        
-            <?php
-                if (isset($contenu)) {
-                    echo '<textarea name="article" id="article" cols="30" rows="10" required>'.$contenu.'</textarea>';
-                    echo '<input type="hidden" value="'.$_POST['truc'].'" name="truc"/>';
-                } else {
-            ?>
+        <?php
+            if (isset($contenu)) {
+                echo '<textarea name="article" id="article" cols="30" rows="10" required>'.$contenu.'</textarea>';
+                echo '<input type="hidden" value="'.$_POST['truc'].'" name="truc"/>';
+            } else {
+        ?>
         <textarea name="article" id="article" cols="30" rows="10" required></textarea>
-                <?php } ?>
+        <?php } ?>
         <input type="submit" name="creer" value="Poster"/>
     </form>
 </main>
