@@ -10,8 +10,10 @@
     <?php
     include_once("personnage.php");
     include_once("dps.php");
-    $perso1 = new Personnage();
-    $perso2 = new DPS();
+    $perso1 = new Personnage(10,10,10,10,10,10,10); 
+    $perso2 = new DPS(0,0,0,0,0,0,0,0,0);
+    
+      
     echo $perso1->genererHTML();
     echo $perso2->genererHTML();
     $perso2->attaqueSpecial($perso1);

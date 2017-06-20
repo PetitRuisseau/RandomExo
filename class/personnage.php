@@ -8,7 +8,27 @@ class Personnage {
     protected $attaque;
     protected $defense;
 
-    public function __construct() {
+    public function __construct($vie = null, $mana = null, $chance = null, $charisme = null, $intelligence = null, $attaque = null, $defense = null) {
+        if ($vie != null && $mana != null && $chance != null && $charisme != null && $intelligence !=null) {
+            $this->vie = $vie;
+            $this->mana = $mana;
+            $this->chance = $chance;
+            $this->charisme = $charisme;
+            $this->intelligence = $intelligence;
+            $this->attaque = $attaque;
+            $this->defense = $defense;
+        } else {
+            $this->vie = rand(100, 200);
+            $this->mana = rand(100, 200);
+            $this->chance = rand(0, 10);
+            $this->charisme = rand(0, 10);
+            $this->intelligence = rand(10, 40);
+            $this->attaque = rand(10, 50);
+            $this->defense = rand(0, 40);
+        }
+    }
+
+    public function apparition() {
         $this->vie = rand(100, 200);
         $this->mana = rand(100, 200);
         $this->chance = rand(0, 10);
@@ -16,16 +36,6 @@ class Personnage {
         $this->intelligence = rand(10, 40);
         $this->attaque = rand(10, 50);
         $this->defense = rand(0, 40);
-    }
-
-    public function reconstruct($vie, $mana, $chance, $charisme, $intelligence, $attaque, $defense) {
-        $this->vie = $vie;
-        $this->mana = $mana;
-        $this->chance = $chance;
-        $this->charisme = $charisme;
-        $this->intelligence = $intelligence;
-        $this->attaque = $attaque;
-        $this->defense = $defense;
     }
 
     public function attaqueDeBase(Personnage $victime) {

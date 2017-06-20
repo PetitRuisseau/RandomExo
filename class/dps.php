@@ -3,16 +3,15 @@ class DPS extends Personnage {
     protected $critique;
     protected $esquive;
 
-    public function __construct() {
-        parent::__construct();
-        $this->critique = rand(5, 10);
-        $this->esquive = rand(5, 10);
-    }
-
-    public function reconstruct($vie, $mana, $chance, $charisme, $intelligence, $attaque, $defense, $critique, $esquive) {
-        parent::reconstruct($vie, $mana, $chance, $charisme, $intelligence, $attaque, $defense);
+    public function __construct($vie, $mana, $chance, $charisme, $intelligence, $attaque, $defense, $critique, $esquive) {
+        return parent::__construct($vie, $mana, $chance, $charisme, $intelligence, $attaque, $defense);
         $this->critique = $critique;
         $this->esquive = $esquive;
+    }
+
+    public function apparitionDPS() {
+        $this->critique = rand(5, 10);
+        $this->esquive = rand(5, 10);
     }
 
     public function attaqueSpecial(Personnage $victime) {
@@ -31,6 +30,7 @@ class DPS extends Personnage {
 
     public function genererStat() {
         return parent::genererStat().
-        "<li>critique : ".$this->critique."</li>";
+        "<li>Critique : ".$this->critique."</li>
+        <li>Esquive : ".$this->esquive."</li>";
     }
 }
