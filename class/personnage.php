@@ -28,15 +28,6 @@ class Personnage {
         }
     }
 
-    public function apparition() {
-        $this->vie = rand(100, 200);
-        $this->mana = rand(100, 200);
-        $this->chance = rand(0, 10);
-        $this->charisme = rand(0, 10);
-        $this->intelligence = rand(10, 40);
-        $this->attaque = rand(10, 50);
-        $this->defense = rand(0, 40);
-    }
 
     public function attaqueDeBase(Personnage $victime) {
         $dommage = $this->attaque - $victime->defense;

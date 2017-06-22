@@ -10,15 +10,23 @@
     <?php
     include_once("personnage.php");
     include_once("dps.php");
-    $perso1 = new Personnage(10,10,10,10,10,10,10); 
-    $perso2 = new DPS(0,0,0,0,0,0,0,0,0);
+    include_once("mj.php");
+    $genti = new DPS(); 
+    $mechant = new DPS();
+    $mj = new MJ("attaqueSpecial");
     
-      
-    echo $perso1->genererHTML();
-    echo $perso2->genererHTML();
-    $perso2->attaqueSpecial($perso1);
-    echo $perso1->genererHTML();
-    echo $perso2->genererHTML();
+    echo "Genti :";
+    echo $genti->genererHTML();
+    echo "mechant :";
+    echo $mechant->genererHTML();
+
+    $mj->action($genti, $mechant);
+
+    echo "genti :";
+    echo $genti->genererHTML();
+    echo "mechant :";
+    echo $mechant->genererHTML();
+    
     ?>
 </body>
 </html>

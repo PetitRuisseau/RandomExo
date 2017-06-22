@@ -3,15 +3,16 @@ class DPS extends Personnage {
     protected $critique;
     protected $esquive;
 
-    public function __construct($vie, $mana, $chance, $charisme, $intelligence, $attaque, $defense, $critique, $esquive) {
-        return parent::__construct($vie, $mana, $chance, $charisme, $intelligence, $attaque, $defense);
-        $this->critique = $critique;
-        $this->esquive = $esquive;
-    }
-
-    public function apparitionDPS() {
-        $this->critique = rand(5, 10);
-        $this->esquive = rand(5, 10);
+    public function __construct($vie = null, $mana = null, $chance = null, $charisme = null, $intelligence = null, $attaque = null, $defense = null, $critique = null, $esquive = null) {
+        parent::__construct();
+        if($critique != null && $esquive != null) {
+            $this->critique = $critique;
+            $this->esquive = $esquive;
+        } else {
+            $this->critique = rand(5, 10);
+            $this->esquive = rand(5, 10);
+        }
+        
     }
 
     public function attaqueSpecial(Personnage $victime) {
