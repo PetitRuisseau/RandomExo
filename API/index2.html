@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="#" method="post">
+    <input type='text' name="race" id="race"/>
+    <input type="submit" name="ok" id="ok"/>
+</form>
+<p></p>
+    
+    <script>
+        function doAjax(options) {
+            let defaults = {
+                url: '',
+                method: 'GET',
+                async: true,
+                args: '',
+                callback: function () { },
+                callbackError: function () { }
+            };
+            assignArgs(options,defaults);
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState === XMLHttpRequest.DONE) {
+                    if (ajax.status === 200 || ajax.status === 304) { 
+                        defaults.callback(ajax.response);
+                    } else {
+                        defaults.callbackError();
+                    }
+                }
+            };
+            ajax.open(defaults.method, defaults.url, defaults.async);
+            ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            ajax.send(defaults.args);
+        }
+        function assignArgs(source, target) {
+            for(let clef in source) {
+                if(target.hasOwnProperty(clef)) {
+                    target[clef] = source[clef];
+                }
+            }
+        }
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            let value = document.querySelector('#race').value;
+            console.log(value)
+            doAjax({
+                url: 'https://dog.ceo/api/breed/' + value + '/images/random',
+                callback: function(reponse) {
+                    let truc = JSON.parse(reponse);
+                    console.log(truc.status);
+                    document.querySelector('p').textContent = truc.status;
+                    let img = document.createElement('img');
+                    img.src = truc.message;
+                    document.querySelector('p').appendChild(img);
+                }
+            });
+            e.preventDefault();
+        });
+
+        fetch('https://dog.ceo/api/breed/briard/images/random').then(function(request) {
+            return request.json();
+        }).then(function(reponse) {
+            let img = document.createElement('img');
+            img.src = reponse.message;
+            document.querySelector('p').appendChild(img);
+        })
+
+
+    </script>
+
+</body>
+</html>

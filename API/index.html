@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="#" method="post">
+    <input type='text' name="ville" id="ville"/>
+    <input type="submit" name="ok" id="ok"/>
+</form>
+<p></p>
+    
+    <script>
+        function doAjax(options) {
+            let defaults = {
+                url: '',
+                method: 'GET',
+                async: true,
+                args: '',
+                callback: function () { },
+                callbackError: function () { }
+            };
+            assignArgs(options,defaults);
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState === XMLHttpRequest.DONE) {
+                    if (ajax.status === 200 || ajax.status === 304) { 
+                        defaults.callback(ajax.response);
+                    } else {
+                        defaults.callbackError();
+                    }
+                }
+            };
+            ajax.open(defaults.method, defaults.url, defaults.async);
+            ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            ajax.send(defaults.args);
+        }
+        function assignArgs(source, target) {
+            for(let clef in source) {
+                if(target.hasOwnProperty(clef)) {
+                    target[clef] = source[clef];
+                }
+            }
+        }
+
+        doAjax({
+            url: 'http://api.openweathermap.org/data/2.5/weather?q=lyon&APPID=2cc7d408f527de19889ec31f5c22aa33',
+            callback: function(reponse) {
+                console.log(reponse);
+                console.log('ok');
+                let truc = JSON.parse(reponse);
+                console.log(truc);
+                console.log(truc.weather[0].main);
+            }
+        });
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            let value = document.querySelector('#ville').value;
+            console.log(value)
+            doAjax({
+                url: 'http://api.openweathermap.org/data/2.5/weather?q=' + value + '&APPID=2cc7d408f527de19889ec31f5c22aa33',
+                callback: function(reponse) {
+                    let truc = JSON.parse(reponse);
+                    console.log(truc.weather[0].main);
+                    document.querySelector('p').textContent = truc.weather[0].main;
+                    let img = document.createElement('img');
+                    img.src = 'http://openweathermap.org/img/w/' + truc.weather[0].icon + '.png';
+                    document.querySelector('p').appendChild(img);
+                }
+            });
+            e.preventDefault();
+        });
+
+
+    </script>
+
+</body>
+</html>

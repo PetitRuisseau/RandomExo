@@ -52,6 +52,7 @@ function doAjax(options) {
         }
     };
     ajax.open(defaults.method, defaults.url, defaults.async);
+    ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     ajax.send(defaults.args);
 }
 function assignArgs(source, target) {
@@ -70,4 +71,17 @@ document.querySelector('#change').addEventListener('click', function () {
 });
 document.querySelector('#disparait').addEventListener('click', function() {
     document.querySelector('p').innerHTML = "";
+});
+document.querySelector('input[type="submit"]').addEventListener('click', function(e) {
+    let input = document.querySelector('input[type="text"]').value;
+    doAjax({
+        url: 'php.php',
+        callback: function rempli(response) { 
+            document.querySelector('ul').innerHTML += '<li>' + response + '</li>'; 
+        },
+        method: 'POST',
+        args: 'new=' + input
+    });
+    document.querySelector('input[type="text"]').value = '';
+    e.preventDefault();
 });

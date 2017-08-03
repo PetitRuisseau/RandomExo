@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form action="#" method="post">
+    <input type='password' name="titre" id="titre"/>
+    <textarea id="message"></textarea>
+    <input type="submit" name="ok" id="ok"/>
+</form>
+<p></p>
+    
+    <script>
+
+        document.querySelector('form').addEventListener("submit", function(e) {
+            e.preventDefault();
+            let title = document.querySelector("#titre").value;
+            let content = document.querySelector("#message").value;
+            let data = JSON.stringify({
+                title: title,
+                content: content
+            });
+            fetch("http://192.168.1.152:8080/article/PRT/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: data
+            }).then(function(response) {
+                console.log(response.status);
+                return response.text();
+            }).then(function(text) {
+                console.log(text);
+            }).catch(function(error) {
+                console.error(error);
+            })
+            e.preventDefault();
+        });
+
+    </script>
+
+</body>
+</html>
