@@ -1,0 +1,17 @@
+{
+  "name": "testwp",
+  "version": "1.0.0",
+  "description": "essaie avec webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch",
+    "serve": "webpack-dev-serveur --watch"
+  },
+  "author": "Clemence Laffont",
+  "license": "MIT",
+  "dependencies": {
+    "node": "^8.3.0",
+    "webpack": "^3.5.5"
+  }
+}

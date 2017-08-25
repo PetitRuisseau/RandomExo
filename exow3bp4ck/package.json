@@ -1,0 +1,20 @@
+{
+  "name": "exow3bp4ck",
+  "version": "1.0.0",
+  "description": "exo sur les webpack et jquery (je crois)",
+  "main": "index.js",
+  "scripts": {
+    "test": "*",
+    "build": "webpack --watch",
+    "serve": "webpack-dev-serveur --watch"
+  },
+  "author": "ClémenceLaffont",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  }
+}
