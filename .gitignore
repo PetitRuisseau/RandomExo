@@ -3,3 +3,6 @@
 /testwp/node_modules/
 express-nodejs/node_modules/
 phpMustache/vendor
+/testunitaire/node_modules/
+/node_modules/
+/typescript/node_modules/
